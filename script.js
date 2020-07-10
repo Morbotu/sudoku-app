@@ -8,7 +8,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
     $scope.mistakes = 0;
 
     $scope.loading = true;
-    await fetch("sudoku.csv")
+    await fetch("createSudokus/sudoku.csv")
         .then((response) => response.text())
         .then((data) => {
             let index = Math.ceil(Math.random() * 1000000);
