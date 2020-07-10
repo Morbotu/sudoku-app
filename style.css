@@ -1,0 +1,100 @@
+td {
+    border: 1px solid black;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+td:nth-child(3n) {
+    border-right: 2px solid black;
+}
+
+td:hover {
+    background: #ebebeb;
+}
+
+tr:nth-child(3n) > td {
+    border-bottom: 2px solid black;
+}
+
+header {
+    padding: 1px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+.center {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+.loadingText {
+    position: relative;
+    text-align: center;
+    margin: 0px;
+    top: 250px;
+}
+
+.numberSelector {
+    top: 10px;
+    left: 5px;
+    position: relative;
+}
+
+.myButton {
+    background-color: #e62626;
+    margin-bottom: 3px;
+    border-radius: 2px;
+    border: 1px solid #9e1515;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 3px 7px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #632020;
+    position: relative;
+}
+
+.myButton:hover {
+    background-color: #bf2a2a;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate(-1px, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate(2px, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate(-2px, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate(2px, 0);
+    }
+}

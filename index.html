@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <title>sudoku</title>
+    </head>
+    <body>
+        <header>
+            <p>Sudoku</p>
+            <h6>Welcome to my sudoku site hope you enjoy.</h6>
+        </header>
+        <br />
+        <div ng-app="sudoku" ng-controller="sudokuController" class="center">
+            <div>
+                <div ng-if="loading">
+                    <style>
+                        td:hover {
+                            background: none;
+                        }
+                        table {
+                            filter: blur(8px);
+                        }
+                    </style>
+                    <h3 class="loadingText">Loading</h3>
+                </div>
+                <table>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 0)">{{ cells[0][0] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 0)">{{ cells[1][0] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 0)">{{ cells[2][0] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 0)">{{ cells[3][0] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 0)">{{ cells[4][0] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 0)">{{ cells[5][0] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 0)">{{ cells[6][0] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 0)">{{ cells[7][0] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 0)">{{ cells[8][0] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 1)">{{ cells[0][1] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 1)">{{ cells[1][1] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 1)">{{ cells[2][1] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 1)">{{ cells[3][1] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 1)">{{ cells[4][1] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 1)">{{ cells[5][1] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 1)">{{ cells[6][1] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 1)">{{ cells[7][1] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 1)">{{ cells[8][1] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 2)">{{ cells[0][2] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 2)">{{ cells[1][2] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 2)">{{ cells[2][2] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 2)">{{ cells[3][2] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 2)">{{ cells[4][2] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 2)">{{ cells[5][2] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 2)">{{ cells[6][2] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 2)">{{ cells[7][2] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 2)">{{ cells[8][2] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 3)">{{ cells[0][3] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 3)">{{ cells[1][3] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 3)">{{ cells[2][3] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 3)">{{ cells[3][3] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 3)">{{ cells[4][3] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 3)">{{ cells[5][3] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 3)">{{ cells[6][3] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 3)">{{ cells[7][3] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 3)">{{ cells[8][3] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 4)">{{ cells[0][4] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 4)">{{ cells[1][4] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 4)">{{ cells[2][4] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 4)">{{ cells[3][4] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 4)">{{ cells[4][4] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 4)">{{ cells[5][4] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 4)">{{ cells[6][4] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 4)">{{ cells[7][4] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 4)">{{ cells[8][4] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 5)">{{ cells[0][5] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 5)">{{ cells[1][5] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 5)">{{ cells[2][5] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 5)">{{ cells[3][5] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 5)">{{ cells[4][5] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 5)">{{ cells[5][5] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 5)">{{ cells[6][5] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 5)">{{ cells[7][5] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 5)">{{ cells[8][5] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 6)">{{ cells[0][6] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 6)">{{ cells[1][6] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 6)">{{ cells[2][6] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 6)">{{ cells[3][6] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 6)">{{ cells[4][6] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 6)">{{ cells[5][6] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 6)">{{ cells[6][6] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 6)">{{ cells[7][6] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 6)">{{ cells[8][6] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 7)">{{ cells[0][7] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 7)">{{ cells[1][7] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 7)">{{ cells[2][7] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 7)">{{ cells[3][7] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 7)">{{ cells[4][7] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 7)">{{ cells[5][7] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 7)">{{ cells[6][7] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 7)">{{ cells[7][7] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 7)">{{ cells[8][7] }}</td>
+                    </tr>
+                    <tr>
+                        <td ng-mousedown="fillInNumber(0, 8)">{{ cells[0][8] }}</td>
+                        <td ng-mousedown="fillInNumber(1, 8)">{{ cells[1][8] }}</td>
+                        <td ng-mousedown="fillInNumber(2, 8)">{{ cells[2][8] }}</td>
+                        <td ng-mousedown="fillInNumber(3, 8)">{{ cells[3][8] }}</td>
+                        <td ng-mousedown="fillInNumber(4, 8)">{{ cells[4][8] }}</td>
+                        <td ng-mousedown="fillInNumber(5, 8)">{{ cells[5][8] }}</td>
+                        <td ng-mousedown="fillInNumber(6, 8)">{{ cells[6][8] }}</td>
+                        <td ng-mousedown="fillInNumber(7, 8)">{{ cells[7][8] }}</td>
+                        <td ng-mousedown="fillInNumber(8, 8)">{{ cells[8][8] }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="numberSelector">
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('1')"
+                    >1</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('2')"
+                    >2</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('3')"
+                    >3</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('4')"
+                    >4</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('5')"
+                    >5</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('6')"
+                    >6</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('7')"
+                    >7</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('8')"
+                    >8</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('9')"
+                    >9</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-mousedown="changeSelectedNumber('clear')"
+                    >clear</a
+                >
+                <a
+                    class="myButton"
+                    style="margin-left: 5px;"
+                    ng-style="shaking"
+                    ng-mousedown="changeSelectedNumber('hint')"
+                    >hint: {{ hintUses }} left</a
+                >
+            </div>
+            <h3 style="color: #374f53; margin-bottom: -20px;">
+                Selected: {{ selectedNumber }}
+            </h3>
+            <h3 style="color: #374f53;">Mistakes: {{ mistakes }}</h3>
+            <a class="myButton" onclick="window.location.reload()">New sudoku</a>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
