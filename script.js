@@ -11,7 +11,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
     await fetch("createSudokus/sudoku.csv")
         .then((response) => response.text())
         .then((data) => {
-            let index = Math.ceil(Math.random() * 999);
+            let index = Math.ceil(Math.random() * 1000001);
             sudoku = data.split("\n")[index].split(",");
             sudoku[0] = sudoku[0].split("").map((item) => {
                 return item === "0" ? "" : item;
