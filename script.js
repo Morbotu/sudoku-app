@@ -8,10 +8,14 @@ app.controller("sudokuController", async ($scope, $timeout) => {
     $scope.mistakes = 0;
 
     $scope.loading = true;
-    await fetch("https://media.githubusercontent.com/media/Rombout124/sudoku-app/master/createSudokus/sudoku.csv")
+    let randomFile = Math.ceil(Math.random() * 7);
+    await fetch("createSudokus/sudokuDataFile" + randomFile + ".csv")
         .then((response) => response.text())
         .then((data) => {
-            let index = Math.ceil(Math.random() * 1000001);
+            let index =
+                randomFile === 7
+                    ? Math.ceil(Math.random() * 142853)
+                    : Math.ceil(Math.random() * 142858);
             sudoku = data.split("\n")[index].split(",");
             sudoku[0] = sudoku[0].split("").map((item) => {
                 return item === "0" ? "" : item;
