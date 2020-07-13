@@ -81,7 +81,6 @@ app.controller("sudokuController", async ($scope, $timeout) => {
             item.style.transition = "background 0.5s";
             notPossibleToFillIn = true;
             mistakeMade = true;
-            audio.play();
             $timeout(function () {
                 $scope.cells[x][y] = "";
                 item.style.background = "";
@@ -99,7 +98,6 @@ app.controller("sudokuController", async ($scope, $timeout) => {
                 item.style.transition = "background 0.5s";
                 notPossibleToFillIn = true;
                 mistakeMade = true;
-                audio.play();
             });
             $timeout(function () {
                 $scope.cells[x][y] = "";
@@ -120,7 +118,6 @@ app.controller("sudokuController", async ($scope, $timeout) => {
                 item.style.transition = "background 0.5s";
                 notPossibleToFillIn = true;
                 mistakeMade = true;
-                audio.play();
             });
             $timeout(function () {
                 $scope.cells[x][y] = "";
@@ -161,7 +158,6 @@ app.controller("sudokuController", async ($scope, $timeout) => {
                                 item.style.transition = "background 0.5s";
                                 notPossibleToFillIn = true;
                                 mistakeMade = true;
-                                audio.play();
                             });
                         $timeout(function () {
                             $scope.cells[x][y] = "";
@@ -183,7 +179,10 @@ app.controller("sudokuController", async ($scope, $timeout) => {
                         }, 1000);
                     }
                 }
-        if (mistakeMade) $scope.mistakes++;
+        if (mistakeMade) {
+            $scope.mistakes++;
+            audio.play();
+        }
         if (JSON.stringify($scope.cells) === JSON.stringify(sudoku[1]))
             document.write("<h1>You won!</h1>");
     };
