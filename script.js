@@ -7,6 +7,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
     $scope.hintUses = 3;
     $scope.mistakes = 0;
 
+    var audio = new Audio("Wrong-answer-sound-effect.mp3");
     $scope.loading = true;
     let randomFile = Math.ceil(Math.random() * 7);
     await fetch("createSudokus/sudokuDataFile" + randomFile + ".csv")
@@ -45,7 +46,6 @@ app.controller("sudokuController", async ($scope, $timeout) => {
 
     $scope.fillInNumber = (x, y) => {
         var mistakeMade = false;
-        var audio = new Audio("Wrong-answer-sound-effect.mp3");
         if (
             document.querySelector(`tr:nth-child(${y + 1}) > td:nth-child(${x + 1})`).style
                 .fontWeight === "bold" ||
