@@ -9,15 +9,17 @@ app.controller("sudokuController", async ($scope, $timeout) => {
 
     var audio = new Audio("Wrong-answer-sound-effect.mp3");
     $scope.loading = true;
-    let randomFile = Math.ceil(Math.random() * 7);
+    const numberOfDataFiles = 20;
+    let randomFile = Math.ceil(Math.random() * numberOfDataFiles);
     await fetch("createSudokus/sudokuDataFile" + randomFile + ".csv")
         .then((response) => response.text())
         .then((data) => {
+            let lines = data.split("\n");
             let index =
                 randomFile === 7
-                    ? Math.ceil(Math.random() * 142853)
-                    : Math.ceil(Math.random() * 142858);
-            sudoku = data.split("\n")[index].split(",");
+                    ? Math.floor(Math.random() * lines.length)
+                    : Math.floor(Math.random() * lines.length);
+            sudoku = lines[index].split(",");
             sudoku[0] = sudoku[0].split("").map((item) => {
                 return item === "0" ? "" : item;
             });
