@@ -9,7 +9,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
 
     var audio = new Audio("Wrong-answer-sound-effect.mp3");
     $scope.loading = true;
-    const numberOfDataFiles = 20;
+    const numberOfDataFiles = 100;
     let randomFile = Math.ceil(Math.random() * numberOfDataFiles);
     await fetch("createSudokus/sudokuDataFile" + randomFile + ".csv")
         .then((response) => response.text())
