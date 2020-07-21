@@ -50,7 +50,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
         var mistakeMade = false;
         if (
             document.querySelector(`tr:nth-child(${y + 1}) > td:nth-child(${x + 1})`).style
-                .fontWeight === "bold" ||
+                .fontWeight === "bolder" ||
             notPossibleToFillIn
         )
             return;
