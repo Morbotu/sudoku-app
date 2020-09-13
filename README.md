@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+# Sudoku-app
 
-You can use the [editor on GitHub](https://github.com/Rombout124/sudoku-app/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Hello, this is a html website where you can play sudoku's. I made it to learn angularjs. I think it worked out very well. Only to loading can take a bit long.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+---
 
-### Markdown
+## Table of content
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+-   [Tools used](#tools-used)
+-   [TODO](#todo)
 
-```markdown
-Syntax highlighted code block
+---
 
-# Header 1
-## Header 2
-### Header 3
+## Tools used
 
-- Bulleted
-- List
+-   HTML5 [<img width="16px" alt="HTML5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png" />](https://www.w3schools.com/html/)
+-   CSS [<img width="16px" alt="CSS" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/240px-CSS3_logo_and_wordmark.svg.png" />](https://en.wikipedia.org/wiki/CSS)
+-   Javascript [<img width="16px" alt="Javascript" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />](https://www.javascript.com/)
+-   Angularjs [<img width="16px" alt="Angularjs" src="https://angularjs.org/favicon.ico" />](https://angularjs.org/)
+-   Python [<img width="16px" alt="Python" src=https://www.python.org/favicon.ico />](https://www.python.org/)
 
-1. Numbered
-2. List
+## TODO
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Rombout124/sudoku-app/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+-   [ ] Make the loading of sudoku's faster.
+-   [ ] Add multiple difficulties.
+-   [ ] Make the site work on a mobile device.
