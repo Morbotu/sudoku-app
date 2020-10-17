@@ -15,10 +15,7 @@ app.controller("sudokuController", async ($scope, $timeout) => {
         .then((response) => response.text())
         .then((data) => {
             let lines = data.split("\n");
-            let index =
-                randomFile === 7
-                    ? Math.floor(Math.random() * lines.length)
-                    : Math.floor(Math.random() * lines.length);
+            let index = Math.floor(Math.random() * lines.length);
             sudoku = lines[index].split(",");
             sudoku[0] = sudoku[0].split("").map((item) => {
                 return item === "0" ? "" : item;
